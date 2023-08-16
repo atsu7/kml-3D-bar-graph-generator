@@ -34,7 +34,7 @@ Value1,Value2,Value3
 
 This is an example.
 ```
-The price of fruits,green,0.5,400,400,0,0
+The price of fruits,green,0.5,400,400,40,140
 Apple, Banana, Cherry
 500,200,300
 ```
