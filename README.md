@@ -21,7 +21,7 @@ Put a csv file in `input/`
 The format is 
 ```
 GraphTitle,Color,Ratio,Radius,Margin,Longitude,Latitude
-legend 1, legend 2, legend 3
+ItemName1, ItemName2, ItemName3
 Value1,Value2,Value3
 ```
 `Color` should be indicated as hex rgba
