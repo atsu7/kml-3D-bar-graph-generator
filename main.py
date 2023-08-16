@@ -27,6 +27,12 @@ def make_label(lat, lon, height, kml, legend, value, legend_height=1000):
     legend_label.style.iconstyle.icon.href = None
     legend_label.style.labelstyle.scale = 3.0 # FIX ここでフォントサイズを指定
 
+def make_title_label(lat, lon, kml, title, title_height=4000):
+    title_label = kml.newpoint(name=title, coords=[(lon, lat, title_height)])
+    title_label.altitudemode = simplekml.AltitudeMode.absolute
+    title_label.style.iconstyle.icon.href = None
+    title_label.style.labelstyle.scale = 5.0 # FIX ここでフォントサイズを指定
+
 
 
 
@@ -113,7 +119,10 @@ def main():
         lat = first_lat
         lon = first_lon + (i)*meridian_distance_to_longitude_difference(first_lat,margin+2*radius)
         make_bar(lat, lon, radius, values_list[i]*ratio, kml, legends_list[i],color)
-        make_label(lat, lon, values_list[i]*ratio, kml, legends_list[i], values_list[i])            
+        make_label(lat, lon, values_list[i]*ratio, kml, legends_list[i], values_list[i])  
+
+    center_longitude = (first_lon+first_lon+meridian_distance_to_longitude_difference(first_lat,(margin+2*radius)*(len(legends_list)-1)))/2
+    make_title_label(first_lat, center_longitude, kml, graph_title)          
 
     kml.save("output/"+csv_name.split('.')[0]+".kml")
         
