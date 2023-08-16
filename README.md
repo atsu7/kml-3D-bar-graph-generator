@@ -46,4 +46,7 @@ Apple, Banana, Cherry
 Python3 main.py file_name.csv
 ```
 
+### Tips
+You can edit color, height, icon, label on Google Earth Pro without coding.
+
 
