@@ -24,6 +24,8 @@ GraphTitle,Color,Ratio,Radius,Margin,Longitude,Latitude
 legend 1, legend 2, legend 3
 Value1,Value2,Value3
 ```
+`Color` should be indicated as hex rgba
+
 `Ratio` means (The graph height) / (Value).
 
 `Radius` means a radius of one bar.
@@ -34,7 +36,7 @@ Value1,Value2,Value3
 
 This is an example.
 ```
-The price of fruits,green,0.5,400,400,40,140
+The price of fruits,00ff00aa,0.5,400,400,40,140
 Apple, Banana, Cherry
 500,200,300
 ```

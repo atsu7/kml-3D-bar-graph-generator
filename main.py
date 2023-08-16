@@ -5,14 +5,14 @@ import simplekml
 from polycircles import polycircles
 
 
-def make_bar(lat, lon, radius, height, kml, legend):
+def make_bar(lat, lon, radius, height, kml, legend, color):
     polycircle = polycircles.Polycircle(latitude=lat, longitude=lon, radius=radius, number_of_vertices=36)
     cords = []
     for dict in polycircle:
         cords.append((dict['lon'], dict['lat'], height))
     
     pol = kml.newpolygon(name=legend+"_polygon", outerboundaryis=cords)
-    pol.style.polystyle.color = simplekml.Color.changealphaint(200, simplekml.Color.green)
+    pol.style.polystyle.color = simplekml.Color.hexa(color)
     pol.altitudemode = simplekml.AltitudeMode.absolute
     pol.style.linestyle.width = 0
     pol.extrude = True
@@ -112,7 +112,7 @@ def main():
     for i in range(0, len(legends_list)):
         lat = first_lat
         lon = first_lon + (i)*meridian_distance_to_longitude_difference(first_lat,margin+2*radius)
-        make_bar(lat, lon, radius, values_list[i]*ratio, kml, legends_list[i])
+        make_bar(lat, lon, radius, values_list[i]*ratio, kml, legends_list[i],color)
         make_label(lat, lon, values_list[i]*ratio, kml, legends_list[i], values_list[i])            
 
     kml.save("output/"+csv_name.split('.')[0]+".kml")
